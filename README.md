@@ -14,15 +14,24 @@ The basic idea of the "kill-switch" is to take a JSON input and evaluate a set o
 }
 ```
 
+### Case 1
+
 - Predefined Rule: `WORKFLOW == "PURCHASE" and BANK == "RBC"`
 - Output: `True`
 
 ![Validate True](./screenshots/validate-true.png)
 
+### Case 2
+
 - Predefined Rule: `WORKFLOW == "REFUND" and BANK == "RBC"`
 - Output: `False`
 
 ![Validate False](./screenshots/validate-false.png)
+
+### Rule Definition (Admin Panel)
+
+![Admin Panel](./screenshots/admin-rule.png)
+
 
 While implementing a simple rule engine for the given JSON is quite easy, the expectation is that most APIs in the backend application would need to call the Kill-switch service to evaluate. Hence, ensuring low latency is of a higher priority.
 
