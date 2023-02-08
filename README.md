@@ -2,6 +2,7 @@
 
 ### Installation
 - [Django Installable Guide](https://realpython.com/installable-django-app/)
+- Install Dependencies: `pip install -r requirements.txt`
 - Migrations: `python manage.py makemigrations` and `python manage.py migrate`
 - Start server: `python manage.py runserver`
 
