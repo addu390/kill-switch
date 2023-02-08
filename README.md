@@ -41,7 +41,7 @@ The different **components** involved are as follows:
 
 ![KS System Design](./screenshots/ks-system-design.png)
 
-- **Data Store (MySQL):** To validate and store the rule(s).
+- **Data Store (MySQL/MongoDB):** To validate and store the rule(s).
 
 - **Queue (RabbitMQ/Kafka):** (for Client application) Scheduler callback pushed to a queue to import the kill-switch rules (in-memory).
 
