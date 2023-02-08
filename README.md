@@ -50,7 +50,7 @@ The different **components** involved are as follows:
 <hr>
 
 ### Conclusion
-The use-case(s) of the kill-switch service spans across domains. All it takes is a set of key-value pairs and rule(s) to validate the key-value pairs, followed by an action item in complete control of the client. Be it temporarily blocking a workflow, a set of users, a tool, or even resources. However, it's important to use KS for its prime purpose and not force-fit to other use-cases like A/B testing.
+The use-case(s) of the kill-switch service spans across domains. All it takes is a set of key-value pairs and rule(s) to validate the key-value pairs, followed by an action item in complete control of the client. Be it temporarily blocking/enabling a workflow, a set of users, a tool, or even resources. 
 
 <hr>
 
