@@ -5,6 +5,8 @@
 - Migrations: `python manage.py makemigrations` and `python manage.py migrate`
 - Start server: `python manage.py runserver`
 
+<hr>
+
 ### Working Overview
 The basic idea of the "kill-switch" is to take a JSON input and evaluate a set of rules on the input JSON and return the match result. 
 After that, it's up to the receiver to decide the action item; one go-to approach is to throw an exception with a custom status code and configure the client-side pages to display a relevant message such as "Temporarily blocked."
@@ -15,6 +17,8 @@ For example: Let's say there's a workflow in the application where the purchase 
 - JSON input: `{"WORKFLOW": "PURCHASE", "BANK": "HSBC"}`
 - Output: `True`
 
+<hr>
+
 ### Model
 The different fields of a rule are as follows:
 - `ID`: A Unique Identifier.
@@ -22,6 +26,8 @@ The different fields of a rule are as follows:
 - `Time Interval`: From and to interval (Validity/Expiry of the rule).
 - `Frequency`: Frequency of rule evaluation (Defaults to 30 seconds).
 - `Status`: Active/Inactive.
+
+<hr>
 
 ### System Design
 While implementing a simple rule engine for the given JSON is relatively easy, the expectation is that most APIs in the backend application would need to call the Kill-switch service to evaluate. Hence, ensuring low latency is of a higher priority.
@@ -34,7 +40,7 @@ The barebone implementation of KS: [https://github.com/addu390/kill-switch](http
 
 The different **components** involved are as follows:
 
-![Validate False](./screenshots/ks-system-design.png)
+![KS System Design](./screenshots/ks-system-design.png)
 
 - **Data Store (MySQL):** To validate and store the rule(s).
 
@@ -42,10 +48,14 @@ The different **components** involved are as follows:
 
 - **Key-value Cache (Redis):** To cache the rules to facilitate low latency API calls.
 
-### 3.4. Conclusion
+<hr>
+
+### Conclusion
 The use-case(s) of the kill-switch service spans across domains. All it takes is a set of key-value pairs and rule(s) to validate the key-value pairs, followed by an action item in complete control of the client. Be it temporarily blocking a workflow, a set of users, a tool, or even resources. However, it's important to use KS for its prime purpose and not force-fit to other use-cases like A/B testing.
 
-## Example:
+<hr>
+
+### Example:
 - JSON input:
 ```
 {
